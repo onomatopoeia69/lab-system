@@ -40,6 +40,8 @@ body {
 .sidebar-header .sidebar-toggler,
 .sidebar-menu-button {
   position: absolute;
+  pointer-events: none;
+  opacity: 0.5;
   right: 20px;
   cursor: not-allowed;
   height: 35px;
@@ -384,5 +386,3 @@ body {
     display: none;
   }
 }
-
-
