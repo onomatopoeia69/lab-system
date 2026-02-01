@@ -34,14 +34,20 @@ new
         
         $this->reset();
 
-       $this->dispatch('show-error', 
-        title: 'Authentication Failed', 
-        message: 'The email or password you entered is incorrect. Please try again.'
+        $this->dispatch('show-error', 
+            title: 'Authentication Failed', 
+            message: 'The email or password you entered is incorrect. Please try again.'
         );
-
-        
        
     }
+
+    public function resetFields()
+    {
+
+            $this->resetErrorBag();
+
+    }
+
 
 
 };
@@ -90,8 +96,9 @@ new
                 </button>
             </form>
 
+            <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
                   <x-toasts id="liveToast" color="danger" title="Error"><i class="bi bi-exclamation-diamond"></i> Invalid Email and Password</x-toasts>
-       
+            </div>
           
 
             
@@ -119,6 +126,17 @@ new
             
     }); 
 
+
+      const inputFields = document.querySelectorAll('input') 
+        inputFields.forEach( input =>{
+            input.addEventListener('click',()=>{
+                $wire.resetFields();
+            });
+        });
+
+
     
 </script>
 @endscript
+
+
