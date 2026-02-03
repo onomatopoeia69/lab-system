@@ -22,4 +22,11 @@ use Illuminate\Support\Facades\Route;
     //user
     Route::livewire('user/home','pages::home')->name('user.home');
 
+       Route::get('/user/logout', function () {
+            Auth::logout();
+            session()->invalidate();
+            session()->regenerateToken();
+            return redirect('user/login');
+        })->name('logout');
+
     });
