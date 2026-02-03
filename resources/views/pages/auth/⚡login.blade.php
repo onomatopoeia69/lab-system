@@ -3,7 +3,6 @@
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Validate;
-use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 
 new
@@ -34,6 +33,8 @@ new
         
         $this->reset();
 
+        $this->addError('invalidCred','test');
+
         $this->dispatch('show-error', 
             title: 'Authentication Failed', 
             message: 'The email or password you entered is incorrect. Please try again.'
@@ -63,8 +64,14 @@ new
             
             <form class="login-form" id="loginForm"  wire:submit.prevent='login' novalidate>
 
+                
+
                 <div class="form-floating mb-3">
-                            <input type="email" class="form-control  @error('email') is-invalid   @else  @if(!empty($username))  @endif @enderror shadow-lg" wire:model='email' placeholder="admin@admin" required>
+                            <input type="email" class="form-control  
+                              @if ($errors->has('email') || $errors->has('invalidCred'))
+                            is-invalid
+                            @endif 
+                            shadow-lg" wire:model='email' placeholder="admin@admin" required>
                             <label for="floatingInput">Email address</label>
                              @error('email')
                                 <div  class="invalid-feedback" wire:transition>{{ $message }}</div>
@@ -72,7 +79,10 @@ new
                   </div>
 
                    <div class="form-floating mb-3">
-                            <input type="password" id="loginPassword" class="form-control  @error('email') is-invalid   @else  @if(!empty($username))  @endif @enderror shadow-lg" wire:model='password' placeholder="admin@admin" required>
+                            <input type="password" id="loginPassword" class="form-control
+                                @if ($errors->has('password') || $errors->has('invalidCred'))
+                            is-invalid
+                            @endif shadow-lg" wire:model='password' placeholder="admin@admin" required>
                             <label for="floatingInput">Password</label>
                              <i wire:ignore
                                 class="bi bi-eye-fill position-absolute top-50 end-0 translate-middle-y me-3 text-secondary d-none" 
@@ -119,11 +129,14 @@ new
 <script>
     
 
+    let eyeBtn = document.querySelector('#eyeloginPassword');
+    let passwordInput = document.querySelector('#loginPassword');
 
     $wire.on('show-error', () => {
 
          const toastLiveExample = document.getElementById('liveToast');
         const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+        eyeBtn.classList.remove('bi-eye-fill');
 
         toastBootstrap.show();
 
@@ -138,8 +151,7 @@ new
             });
         });
 
-    let eyeBtn = document.querySelector('#eyeloginPassword');
-    let passwordInput = document.querySelector('#loginPassword');
+  
 
     passwordInput.addEventListener('input',(event)=>{
 
