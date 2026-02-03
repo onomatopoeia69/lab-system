@@ -72,12 +72,16 @@ new
                   </div>
 
                    <div class="form-floating mb-3">
-                            <input type="email" class="form-control  @error('email') is-invalid   @else  @if(!empty($username))  @endif @enderror shadow-lg" wire:model='password' placeholder="admin@admin" required>
+                            <input type="password" id="loginPassword" class="form-control  @error('email') is-invalid   @else  @if(!empty($username))  @endif @enderror shadow-lg" wire:model='password' placeholder="admin@admin" required>
                             <label for="floatingInput">Password</label>
+                             <i wire:ignore
+                                class="bi bi-eye-fill position-absolute top-50 end-0 translate-middle-y me-3 text-secondary d-none" 
+                                id="eyeloginPassword"
+                                style="cursor: pointer;">
+                            </i>
                              @error('password')
                                 <div  class="invalid-feedback" wire:transition>{{ $message }}</div>
                             @enderror
-
                   </div>
                
                 <div class="form-options">
@@ -133,6 +137,42 @@ new
                 $wire.resetFields();
             });
         });
+
+    let eyeBtn = document.querySelector('#eyeloginPassword');
+    let passwordInput = document.querySelector('#loginPassword');
+
+    passwordInput.addEventListener('input',(event)=>{
+
+        let input = event.target.value;
+
+        if(input)
+        {
+            eyeBtn.classList.remove('d-none');
+         }else{
+            eyeBtn.classList.add('d-none');
+        }
+    
+    });
+
+     eyeBtn.addEventListener('click',(event)=>{
+
+        let isPassword = passwordInput.type === 'password' ? true : false;
+
+        if(isPassword)
+        {
+        passwordInput.type = 'text';
+        eyeBtn.classList.remove('bi-eye-fill');
+        eyeBtn.classList.add('bi-eye-slash-fill');
+
+        }else{
+        passwordInput.type = 'password';
+        eyeBtn.classList.remove('bi-eye-slash-fill');
+        eyeBtn.classList.add('bi-eye-fill');
+        }
+
+
+    });
+
 
 
     

@@ -22,9 +22,7 @@ class extends Component
 ?>
 
 <div>
-   
-
-      <div class="app-container">
+ <div class="app-container">
     <header class="top-navbar">
         <!-- Left: Menu Button -->
         <button class="sidebar-menu-button" id="topMenuBtn">
@@ -384,3 +382,4 @@ class extends Component
 
    
 </div>
+
