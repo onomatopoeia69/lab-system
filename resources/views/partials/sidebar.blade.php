@@ -21,6 +21,25 @@
         <i class="bi bi-folder2-open me-2"></i> Projects
       </a>
     </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="bi bi-book me-2"></i> Schedule
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="bi bi-hospital me-2"></i> Laboratories
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="bi bi-exclamation-octagon me-2"></i> Reports
+      </a>
+    </li>
+
     <li class="nav-item">
       <a class="nav-link" href="#">
         <i class="bi bi-gear me-2"></i> Settings
