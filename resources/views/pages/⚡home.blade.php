@@ -5,7 +5,7 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 
 new 
-#[Layout('layouts.home',['title' => 'Login'])]
+#[Layout('layouts.home',['title' => 'Laboratory'])]
 class extends Component
 {
   

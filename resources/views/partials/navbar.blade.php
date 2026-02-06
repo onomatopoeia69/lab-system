@@ -10,7 +10,16 @@
       <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
         <ol class="breadcrumb m-0">
           <li class="breadcrumb-item text-muted small">Laboratory</li>
-          <li class="breadcrumb-item active small fw-bold" aria-current="page text-dark">Dashboard</li>
+          <li class="breadcrumb-item active small fw-bold" aria-current="page text-dark">
+
+              {{ match(Route::currentRouteName()) {
+                  'user.home' => 'Dashboard',
+                  'user.users' => 'Users',
+                  default => 'Page',
+              } }}
+
+
+          </li>
         </ol>
       </nav>
     </div>

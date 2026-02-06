@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +21,8 @@ use Illuminate\Support\Facades\Route;
 
     Route::middleware(['auth'])->group( function() {
     //user
-    Route::livewire('user/home','pages::home')->name('user.home');
+    Route::livewire('admin/home','pages::home')->name('user.home');
+    Route::livewire('admin/users','pages::user.users')->name('user.users');
 
        Route::get('/user/logout', function () {
             Auth::logout();

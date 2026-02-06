@@ -7,12 +7,12 @@
   
   <ul class="nav nav-pills flex-column gap-2">
     <li class="nav-item">
-      <a class="nav-link active" href="#">
+      <a class="nav-link " wire:current='active' href="{{ route('user.home') }}">
         <i class="bi bi-speedometer2 me-2"></i> Dashboard
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a class="nav-link" wire:current='active' href="{{ route('user.users') }}">
         <i class="bi bi-people me-2"></i> Users
       </a>
     </li>
