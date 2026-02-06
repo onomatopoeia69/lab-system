@@ -12,7 +12,7 @@ class extends Component
 };
 ?>
 
-<div>
+<div class="p-4">
 
     <div class="container-fluid p-4">
 
