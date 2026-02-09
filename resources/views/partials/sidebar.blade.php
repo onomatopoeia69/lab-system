@@ -28,10 +28,92 @@
       </a>
     </li>
 
-    <li class="nav-item">
+    {{-- <li class="nav-item">
       <a class="nav-link" href="#">
         <i class="bi bi-hospital me-2"></i> Laboratories
       </a>
+    </li> --}}
+
+    <li class="nav-item">
+      <a
+        class="nav-link d-flex justify-content-between align-items-center"
+        data-bs-toggle="collapse"
+        href="#laboratoriesMenu"
+        role="button"
+        aria-expanded="false"
+        aria-controls="laboratoriesMenu"
+      >
+        <span>
+          <i class="bi bi-hospital me-2"></i>
+          Laboratories
+        </span>
+        <i class="bi bi-chevron-down small"></i>
+      </a>
+
+      <ul class="collapse nav flex-column ms-4" id="laboratoriesMenu">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            Criminology Laboratory
+          </a>
+
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="#">Finger Print Lab</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Crime Scene Lab</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Ballistic Lab</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Questiones Document Lab</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Chemistry Lab</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Defense and Tactics Lab</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            IT Laboratory
+          </a>
+
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="#">Computer Lab 1</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Computer Lab 2</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Computer Lab 3</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            Physics Laboratory
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            Psychological Laboratory
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            H.E Laboratory
+          </a>
+        </li>
+      </ul>
     </li>
 
     <li class="nav-item">
